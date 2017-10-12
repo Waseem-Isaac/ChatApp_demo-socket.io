@@ -1,0 +1,32 @@
+body {background: #f0f0f0}
+
+.container-fluid {
+    width:90%;
+    height: 500px;
+    margin: 2% auto;
+    background:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url('back.png');
+    background-size:cover; 
+    padding: 0 1% 1% 1%;
+    border-radius: 20px;
+    position: relative;
+    
+}
+
+.messages {
+    height:83%;
+    overflow: auto;
+    position: relative;
+    padding: 20px;
+}
+
+.sender {
+    background-color:#337ab7;padding:1% 2%; margin:2px;font-size:100%;
+}
+.reciever {
+    background-color:#f1f1f1;padding:1% 2%; margin:2px;font-size:100%;
+    color: #000; float: right;
+    /*position: absolute; right:20px;   Problem Here*/
+}
+
+.input-group {margin-top: 15px; position: absolute; bottom: 20px;width: 96%;}
+.input-group-btn input { height: 52px;}

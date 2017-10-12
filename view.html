@@ -1,0 +1,44 @@
+<!doctype html>  
+<html>
+    <head>
+        <script src="socket.io.js"></script>
+        <script src="jquery-3.2.0.min.js"></script>
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link href="ChatStyle.css" rel="stylesheet">
+    </head>
+    <body >
+
+<div class="container-fluid" >
+        <div class="messages" >
+            <span id="message"></span>
+        </div>
+            <div class="input-group">
+                    <textarea id="chat_input" rows="2" cols="10" class="form-control" ></textarea>
+                <div class="input-group-btn">  
+                    <input id="bb" type="button" value="send" class="btn btn-primary">
+                </div>
+            </div>
+</div>
+
+        <script>
+            var socket = io.connect('http://localhost:3000');
+            socket.on('connect',function(data){
+                // socket.emit('join','Hello From The Client');
+            });
+
+            socket.on('broad',function(data){
+                $('#message').after("<pre class='badge reciever'>" +data+ "</pre><br><br>");
+            });
+
+            $('#bb').click(function(e){
+                
+                var message = $('#chat_input').val();
+                socket.emit('messages',message);
+               
+                $('#message').after("<pre class='badge sender'>" +message+ "</pre><br><br>");
+                
+            });
+        </script>
+        
+    </body>
+</html>
